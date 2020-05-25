@@ -1,7 +1,7 @@
 FROM centos:8
 
 # Prepare
-RUN yum check-update -y
+RUN yum -y check-update || { rc=$?; [ "$rc" -eq 100 ] && exit 0; exit "$rc"; }
 RUN yum update -y
 RUN yum clean all -y
 RUN adduser \
