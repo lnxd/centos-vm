@@ -1,9 +1,9 @@
 FROM centos:8
 
 # Prepare
-RUN yum check-update
-RUN yum update
-RUN yum clean all
+RUN yum check-update -y
+RUN yum update -y
+RUN yum clean all -y
 RUN adduser \
     --disabled-password \
     --gecos "" \
